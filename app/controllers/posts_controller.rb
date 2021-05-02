@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-  end
+  end 
 
   def create
     post = Post.create(post_params)
@@ -19,6 +19,8 @@ class PostsController < ApplicationController
   private
 
   def post_params
+    binding.pry
     params.require(:post).permit(:title, :content, category_ids:[], categories_attributes: [:name])
   end
 end
+#"post"=>{"title"=>"asf", "content"=>"sdaf", "category_ids"=>[""], "categories_attributes"=>{"0"=>{"name"=>"sdfa"}}}
